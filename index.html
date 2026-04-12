@@ -5,13 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="scripts.js" defer></script>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <input type="text" placeholder="Food name" id="food-name">
-    <div id="list"></div>
-    <input type="number" placeholder="calories" id="calories">
-    <button type="submit" id="calculate-btn">Calculate calories</button>
-    <button type="reset" id="reset-btn">Reset</button>
+    <!-- food and calorie input form -->
+    <form type="submit" id="form">
+        <h2 id="h2">Cal count!~Your Calorie tracker!</h2>
+        <input type="text" placeholder="Food name" id="food-name">
+        <div id="list"></div>
+        <input type="number" placeholder="calories" id="calories">
+        <button type="submit" id="calculate-btn">Calculate calories</button>
+        <button type="reset" id="reset-btn">Reset</button>
+    </form>
+    <p id="total-calories"></p>
 </body>
 </html>
