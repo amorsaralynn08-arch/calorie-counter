@@ -3,8 +3,8 @@
     flex-direction: column;
     flex-wrap: wrap;
     gap: 10px;
-    margin: 20px;
-    padding: 20px;
+    margin: 40px;
+    padding: 40px;
     border: solid 2px black;
     border-radius: 12px;
     background-color: bisque;
@@ -28,29 +28,41 @@
     gap: 10px;
     padding: 6px;
 }
-#calculate-btn:hover{
-    background-color: rgb(128, 238, 128);
-    transform: scale(1.0);
-transition-duration: 200ms;
+
+#calculate-btn{
     flex-direction: column;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     gap: 10px;
     padding: 6px;
-    background-color: rgb(162, 240, 162);
+    background-color: rgb(63, 243, 123);
 }
-#reset-btn:hover{
-    background-color: rgb(128, 238, 128);
+
+
+#calculate-btn:hover{
+    background-color: rgb(65, 209, 113);
     transform: scale(1.0);
 transition-duration: 200ms;
+   
+}
+
+#reset-btn{
     flex-direction: column;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     gap: 10px;
     padding: 6px;
-    background-color: rgb(162, 240, 162);
+    background-color: rgb(63, 243, 123);
+}
+
+
+#reset-btn:hover{
+    background-color: rgb(238, 130, 97);
+    transform: scale(1.0);
+transition-duration: 200ms;
+    
 }
 #h2{
     color: crimson;

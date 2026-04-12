@@ -1,32 +1,48 @@
 const form = document.getElementById("form");
-if(form){
-    form.addEventListener("submit", function(e){
-e.preventDefault();
-})};
-let totalCalories = 0;
-const caloriesnumber=number(calories);
-totalCalories += caloriesnumber;
-const result = document.getElementById("total-calories");
-result.textContent = `Your total calorie intake is ${totalCalories} calories!`;
+const caloriesInput = document.getElementById("calories");
+const foodInput = document.getElementById("foodName");
 const list = document.getElementById("list");
-const items = document.createElement("p");
-items.textContent = foodName + " - " + calories + " calories";
-list.appendChild(items);
-const calories = document.getElementById("calories").value;
-const foodName = document.getElementById("food-name").value;
+const totalDisplay= document.getElementById("total-calories");
+
+form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    console.log(foodInput);
+    console.log(caloriesInput);
+    
+
+    let foods= JSON.parse(localStorage.getItem("foods")) || [];
+    function displayFoods(){
+        list.innerHTML="";
+        let totalCalories=0;
+            foods.forEach(function(food){
+                const item = document.createElement("p");
+                item.textContent = food.name +"-" + food.calories + "calories";
+                list.appendChild(item);
+                totalCalories += food.calories;
+            });
+            totalDisplay.textContent = "Total Calories: " + totalCalories;
+    }
+    displayFoods();
 
 
-const StoredData={
-    foodName: foodName,
-    calories: calories,
-    result: result.textContent
-};
-localStorage.setItem("StoredData", JSON.stringify(StoredData));
-console.log(StoredData);
-localStorage.getItem("StoredData");
-const retrievedData = JSON.parse(localStorage.getItem("StoredData"));
-console.log(retrievedData);
+    const foodName= foodInput.value;
+    const calories = Number(caloriesInput.value);
 
-const p= document.createElement("p");
-p.innerText = `your total calorie intake is ${calories} calories!`;
-list.appendChild(p);
+    if(foodName === "" || calories === 0){
+        alert("Please enter valid food name and calories.");
+        return;
+    }
+    foods.push({name: foodName, calories: calories});
+   
+         localStorage.setItem("foods", JSON.stringify(foods));
+         displayFoods();
+         foodInput.value="";
+            caloriesInput.value="";
+    });
+    function resetFoods(){
+        localStorage.removeItem("foods");
+        foods=[];
+        displayFoods();
+    }
+
+    
